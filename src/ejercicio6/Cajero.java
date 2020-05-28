@@ -3,6 +3,7 @@ package ejercicio6;
 public abstract class Cajero {
     private int cantidad;
     private String tipo;
+    public int montoInicial;
 
     public Cajero(int cantidad, String tipo) {
         this.cantidad = cantidad;
@@ -11,6 +12,6 @@ public abstract class Cajero {
 
     public void prestar() {
         System.out.println("Se requiere prestar la cantidad: " + cantidad + " para " + tipo);
-        Cuenta.getInstance(10000).prestar(cantidad);
+        Cuenta.getInstance(montoInicial).prestar(cantidad);
     }
 }

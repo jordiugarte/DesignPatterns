@@ -6,6 +6,7 @@ public class Client {
             @Override
             public void run() {
                 Vivienda vivienda = new Vivienda();
+                vivienda.montoInicial = 10000;
                 vivienda.prestar();
             }
         });
@@ -14,6 +15,7 @@ public class Client {
             @Override
             public void run() {
                 Cajero negocios = new Negocios();
+                negocios.montoInicial = 5000;
                 negocios.prestar();
             }
         });
@@ -22,6 +24,7 @@ public class Client {
             @Override
             public void run() {
                 Cajero creditos = new Creditos();
+                creditos.montoInicial = 5000;
                 creditos.prestar();
             }
         });
@@ -30,6 +33,7 @@ public class Client {
             @Override
             public void run() {
                 Cajero financiamiento = new Financiamiento();
+                financiamiento.montoInicial = 10000;
                 financiamiento.prestar();
             }
         });
