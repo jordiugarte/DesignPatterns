@@ -1,22 +1,15 @@
-package ejercicios3.memento;
+package _parcial2.memento;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CareTaker {
-    private Originator originator;
+    private HashMap<Integer, Memento> savedStates = new HashMap<>();
 
-    public CareTaker(Originator originator) {
-        this.originator = originator;
+    public void addMemento(Integer s, Memento memento) {
+        this.savedStates.put(s, memento);
     }
 
-    private ArrayList<Memento> savedStates = new ArrayList<>();
-
-    public void addMemento(Memento memento) {
-        this.savedStates.add(memento);
-        memento.getState().showData();
-    }
-
-    public Memento getMemento(int index) {
-        return this.savedStates.get(index);
+    public Memento getMemento(int s) {
+        return this.savedStates.get(s);
     }
 }

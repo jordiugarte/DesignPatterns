@@ -1,37 +1,37 @@
-package ejercicios3.memento;
-
-import java.util.ArrayList;
+package _parcial2.memento;
 
 public class Client {
     public static void main(String[] args) {
+        CareTaker careTaker = new CareTaker();
         Originator originator = new Originator();
-        CareTaker backups = new CareTaker(originator);
+        originator.setCareTaker(careTaker);
 
-        DataBase dataBase;
+        Documento documento;
 
-        dataBase = new DataBase(new ArrayList<>());
+        documento = new Documento(1, "Version 1");
+        originator.setState(documento);
+        originator.setIndexState(documento.getID());
+        careTaker.addMemento(documento.getID(), originator.createMemento());
 
-        dataBase.setPersona(new Persona("Jose", 1234567, 25));
-        originator.setState(dataBase);
-        backups.addMemento(originator.createMemento());
+        documento = new Documento(2, "Version 2");
+        originator.setState(documento);
+        originator.setIndexState(documento.getID());
+        careTaker.addMemento(documento.getID(), originator.createMemento());
 
-        dataBase.setPersona(new Persona("Rodrigo", 1234563, 31));
-        originator.setState(dataBase);
-        backups.addMemento(originator.createMemento());
+        documento = new Documento(3, "Version 3");
+        originator.setState(documento);
+        originator.setIndexState(documento.getID());
+        careTaker.addMemento(documento.getID(), originator.createMemento());
 
-        dataBase.setPersona(new Persona("Federico", 1234563, 49));
-        originator.setState(dataBase);
-        backups.addMemento(originator.createMemento());
+        documento = new Documento(4, "Version 4");
+        originator.setState(documento);
+        originator.setIndexState(documento.getID());
+        careTaker.addMemento(documento.getID(), originator.createMemento());
 
-        dataBase.setPersona(new Persona("Alonso", 1234564, 51));
-        originator.setState(dataBase);
-        backups.addMemento(originator.createMemento());
-
-        dataBase.setPersona(new Persona("Freddy", 1234563, 46));
-        originator.setState(dataBase);
-        backups.addMemento(originator.createMemento());
-
-        originator.restoreFromMemento(backups.getMemento(1));
+        originator.ctrlZ();
+        originator.ctrlZ();
+        originator.ctrlZ();
+        originator.ctrlY();
 
     }
 }

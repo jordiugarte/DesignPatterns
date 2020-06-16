@@ -1,17 +1,17 @@
-package ejercicios3.memento;
+package _parcial2.memento;
 
 public class Memento {
-    private DataBase state;
+    private Documento state;
 
-    public Memento(DataBase stateSaved) {
+    public Memento(Documento stateSaved) {
         this.state = stateSaved;
     }
 
-    public DataBase getState() {
+    public Documento getState() {
         return state;
     }
 
-    public void setState(DataBase state) {
+    public void setState(Documento state) {
         this.state = state;
     }
 }
